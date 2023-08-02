@@ -48,13 +48,14 @@ function Wifi() {
     setLogo(blobURL);
   };
   return (
-    <Flex>
+    <Flex className="main_qr_content">
       <Box
         w="57.5%"
         p="4"
         borderWidth="1px"
         borderRadius="lg"
         overflow="hidden"
+        className="card_item"
       >
         <FormControl isInvalid={state.isEmailError}>
           <FormLabel>Wifi Name</FormLabel>
@@ -99,6 +100,8 @@ function Wifi() {
       <Spacer />
       <Box
         bg={{ base: "#EDF2F7", dark: "dark.lighterGray" }}
+        className="card_item"
+
         w="40%"
         p="4"
         borderWidth="1px"

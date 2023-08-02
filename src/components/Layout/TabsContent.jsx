@@ -22,18 +22,18 @@ import Link from "../Froms/Link";
 function TabsContent() {
   return (
     <Tabs w="75%" isFitted variant="enclosed">
-      <TabList>
-        <Tab>
+      <TabList className="tabs_container">
+        <Tab className="tabs_content">
           <FcWiFiLogo className="tabs_icons" /> Wifi
         </Tab>
-        <Tab>
+        <Tab  className="tabs_content">
           <FcLink className="tabs_icons" /> Link
         </Tab>
-        <Tab>
+        <Tab  className="tabs_content">
           {" "}
           <FcAddressBook className="tabs_icons" /> V-Card
         </Tab>
-        <Tab>
+        <Tab  className="tabs_content">
           <FcMissedCall className="tabs_icons" /> Call
         </Tab>
       </TabList>

@@ -25,10 +25,9 @@ function QrCode({ value, fgColor, bgColor, logo }) {
           height : "60",
           excavate : true
         }}
-        size="200"
         className="qrcode"  
       />
-      <Input w={"40%"} value={name} onChange={(e) => setName(e.target.value)} />
+      <Input className="filename_input" w={"40%"} value={name} onChange={(e) => setName(e.target.value)} />
       <Button onClick={handleDownload}>Download Qr Code</Button>
     </div>
   );
