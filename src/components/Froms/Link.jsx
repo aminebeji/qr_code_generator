@@ -10,10 +10,8 @@ import QROptions from "./QROptions";
 import QrCode from "../Qr/QrCode";
 function Link() {
   var states = {
-    name: null,
-    password: null,
-    isEmailError: false,
-    isPasswordError: false,
+    link: null,
+    siLinkError: false,
     value: "",
   };
   const [state, setState] = useState(states);
@@ -57,17 +55,16 @@ function Link() {
         borderRadius="lg"
         overflow="hidden"
         className="card_item"
-
       >
-        <FormControl isInvalid={state.isEmailError}>
+        <FormControl isInvalid={state.siLinkError}>
           <FormLabel>Your Link</FormLabel>
           <Input
-            name="name"
+            name="link"
             type="text"
-            value={state.name}
+            value={state.link}
             onChange={handleInputChange}
           />
-          {!state.isEmailError ? (
+          {!state.siLinkError ? (
             <FormHelperText>Enter Your Link</FormHelperText>
           ) : (
             <FormErrorMessage>Link is required.</FormErrorMessage>
@@ -85,8 +82,7 @@ function Link() {
       </Box>
       <Spacer />
       <Box
-              className="card_item"
-
+        className="card_item"
         bg={{ base: "#EDF2F7", dark: "dark.lighterGray" }}
         w="40%"
         p="4"

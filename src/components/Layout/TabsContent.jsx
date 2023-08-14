@@ -16,8 +16,9 @@ import {
   FcMissedCall,
 } from "react-icons/fc";
 import Wifi from "../Froms/Wifi";
-import Image from "../Froms/Image";
 import Link from "../Froms/Link";
+import VCard from "../Froms/VCard";
+import Call from "../Froms/Call";
 
 function TabsContent() {
   return (
@@ -26,14 +27,15 @@ function TabsContent() {
         <Tab className="tabs_content">
           <FcWiFiLogo className="tabs_icons" /> Wifi
         </Tab>
-        <Tab  className="tabs_content">
+        <Tab className="tabs_content">
           <FcLink className="tabs_icons" /> Link
         </Tab>
-        <Tab  className="tabs_content">
+
+        <Tab className="tabs_content">
           {" "}
           <FcAddressBook className="tabs_icons" /> V-Card
         </Tab>
-        <Tab  className="tabs_content">
+        <Tab className="tabs_content">
           <FcMissedCall className="tabs_icons" /> Call
         </Tab>
       </TabList>
@@ -45,16 +47,10 @@ function TabsContent() {
           <Link />{" "}
         </TabPanel>
         <TabPanel className="connected-tab-panel">
-          <Alert status="info">
-            <AlertIcon />
-            COMMING SOON
-          </Alert>
+          <VCard/>
         </TabPanel>
         <TabPanel className="connected-tab-panel">
-          <Alert status="info">
-            <AlertIcon />
-            COMMING SOON
-          </Alert>
+          <Call/>
         </TabPanel>
       </TabPanels>
     </Tabs>

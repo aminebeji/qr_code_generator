@@ -15,15 +15,15 @@ const Navbar = () => {
       p="4"
       bg="teal.500"
       color="white"
-      wrap={true}
+      wrap={"wrap"}
     >
       <Flex justify={"center"} align={"center"}>
         <LuQrCode className="logo_icon" />{" "}
         <h6 className="logo_title">Qr Code Gen</h6>
       </Flex>
-      <Flex gap={50}>
+      <Flex className="menu-desktop" wrap={"wrap"} gap={50}>
         <Link href="/"> Home </Link>
-        <Link href="/faq"> FAQ </Link>
+        <Link href="/about-us"> About Us </Link>
         <Link href="https://aminebeji.github.io/portfolio/" isExternal>
           {" "}
           Contact Me{" "}

@@ -79,3 +79,19 @@
   width: 100% !important;
 }
 }
+@media screen and (max-width : 992px) {
+  .about-us {
+    width: 100% !important;
+    padding: 1em !important;
+  }
+}
+.about-us {
+  width: 50%;
+  margin: auto;
+}
+
+@media screen and (max-width : 550px) {
+  .menu-desktop {
+    display: none !important;
+  }
+}

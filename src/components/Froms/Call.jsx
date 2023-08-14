@@ -1,16 +1,30 @@
-import { Box, Flex, Spacer } from "@chakra-ui/react";
+import { Box, Flex, Input, Spacer } from "@chakra-ui/react";
 import React, { useState } from "react";
-
+import {
+  FormControl,
+  FormLabel,
+  FormErrorMessage,
+  FormHelperText,
+} from "@chakra-ui/react";
 import QROptions from "./QROptions";
 import QrCode from "../Qr/QrCode";
-import ImageUploader from "../items/ImageUpload";
-function Image() {
+function Call() {
   var states = {
+    phone: null,
+    isPhoneError: false,
     value: "",
   };
   const [state, setState] = useState(states);
-  var [image, setImage] = useState("");
   var [Logo, setLogo] = useState(null);
+  const handleInputChange = (e) => {
+    setState({
+      ...state,
+      [e.target.name]: e.target.value,
+      value: "TEL:"  +e.target.value,
+    });
+
+    console.log(state);
+  };
 
   var colorState = {
     bgColor: "#000000",
@@ -31,54 +45,30 @@ function Image() {
     console.log(blobURL);
     setLogo(blobURL);
   };
-  function blobToBase64(blob) {
-    return new Promise((resolve, reject) => {
-      const reader = new FileReader();
-
-      reader.onload = () => {
-        const base64String = reader.result;
-        resolve(base64String);
-      };
-
-      reader.onerror = () => {
-        reject(new Error("Error converting Blob to Base64"));
-      };
-
-      reader.readAsDataURL(blob);
-    });
-  }
-
-  var uploadImage = (e) => {
-    var imageUrl = URL.createObjectURL(e.target.files[0]);
-    console.log(imageUrl);
-    fetch(imageUrl)
-      .then((response) => response.blob())
-      .then((blob) => {
-        console.log("this is data = >", console.log(blob));
-        return blobToBase64(blob)
-          .then((base64String) => {
-            console.log("Base64 encoded:", base64String);
-            setState({ value: base64String });
-          })
-          .catch((error) => {
-            console.error(error);
-          });
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  };
   return (
-    <Flex>
+    <Flex className="main_qr_content">
       <Box
         w="57.5%"
         p="4"
         borderWidth="1px"
         borderRadius="lg"
         overflow="hidden"
+        className="card_item"
       >
-        <ImageUploader uploadImage={uploadImage} />
-
+        <FormControl isInvalid={state.isPhoneError}>
+          <FormLabel>Your Phone Number</FormLabel>
+          <Input
+            name="TEL"
+            type="text"
+            value={state.phone}
+            onChange={handleInputChange}
+          />
+          {!state.isPhoneError ? (
+            <FormHelperText>Enter Your Phone Number</FormHelperText>
+          ) : (
+            <FormErrorMessage>Phone Number is required.</FormErrorMessage>
+          )}
+        </FormControl>
         <Spacer h={"10"} />
         <QROptions
           changeLogo={(e) => {
@@ -91,6 +81,7 @@ function Image() {
       </Box>
       <Spacer />
       <Box
+        className="card_item"
         bg={{ base: "#EDF2F7", dark: "dark.lighterGray" }}
         w="40%"
         p="4"
@@ -114,4 +105,4 @@ function Image() {
   );
 }
 
-export default Image;
+export default Call;
