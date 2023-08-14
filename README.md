@@ -6,7 +6,7 @@
 
 ![image](https://github.com/aminebeji/qr_code_generator/assets/49959130/b43e39a1-ba09-49c0-9b95-46b42789b476)
 
-> Brief description of your project's main purpose and features.
+> Just a cool qr code generator app in React.js.
 
 ## Table of Contents
 - [Demo](#demo)
